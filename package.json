@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "prettier": "prettier -c '**/*.{ts,js,md,json,yml}'",
+    "prettier:fix": "prettier --write '**/*.{ts,js,md,json,yml}'"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
+}
