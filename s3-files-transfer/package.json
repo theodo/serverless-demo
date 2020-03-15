@@ -1,8 +1,7 @@
 {
   "name": "s3-files-transfer",
   "version": "1.0.0",
-  "description": "Serverless webpack example using Typescript",
-  "main": "handler.js",
+  "description": "S3 files transfer demo",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
