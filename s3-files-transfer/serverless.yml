@@ -2,6 +2,7 @@ service:
   name: s3-files-transfer
 
 custom:
+  myBucketName: ${self:service.name}-my-bucket
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
@@ -12,5 +13,28 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:*
+      Resource: "*"
 
 functions:
+  getSignedUrl:
+    handler: functions/getSignedUrl.main
+    environment:
+      bucketName: ${self:custom.myBucketName}
+    events:
+      - http:
+          method: get
+          path: get-url
+
+  afterUpload:
+    handler: functions/afterUpload.main
+    events:
+      - s3:
+          bucket: ${self:custom.myBucketName}
+          existing: true
+
+resources:
+  - ${file(resources/s3.yml)}
