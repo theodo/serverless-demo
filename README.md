@@ -8,3 +8,5 @@ This project is driven by the Serverless guild of Theodo.
 For further information please contact Xavier Lefèvre.
 
 ### Features:
+
+- [S3 files transfer](./s3-files-transfer/README.md)
